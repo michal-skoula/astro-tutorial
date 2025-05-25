@@ -1,6 +1,9 @@
 ---
 import "../../resources/css/global.css";
 
+import Navigation from "../components/navigation.astro";
+import Link from "../components/link.astro";
+
 const pageTitle = "Michal Škoula";
 const os = "linux";
 const bool = false;
@@ -20,16 +23,12 @@ const options = [
     <title>{pageTitle}</title>
   </head>
   <body>
+    <Navigation />
+    <Link href="#">Test</Link>
     <h1 class="">Astro</h1>
     {!bool && <p class="text-green-500">This is true!</p>}
 
-    {
-      os === "linux" ? (
-        <p class="text-red-500">Linux is the best OS!</p>
-      ) : (
-        <p class="text-blue-500">Linux is not the best OS!</p>
-      )
-    }
+    {os === "linux" ? <p class="text-red-500">Linux is the best OS!</p> : <p class="text-blue-500">Linux is not the best OS!</p>}
     <ul>
       {options.map((option) => <li>{option.name}</li>)}
     </ul>

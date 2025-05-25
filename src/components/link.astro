@@ -1,0 +1,14 @@
+---
+import { isExternal } from "../util/isExternal";
+
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+const external = isExternal(Astro.request.url, import.meta.env.APP_URL);
+---
+
+<a href={href} target={external ? "_blank" : "_self"}>
+  <slot />
+</a>
