@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+}
+
+@layer base {
+  body {
+    @apply bg-slate-900 leading-[150%] text-gray-50;
+  }
+}

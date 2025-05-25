@@ -1,5 +1,14 @@
 ---
+import "../../resources/css/global.css";
 
+const pageTitle = "Michal Škoula";
+const os = "linux";
+const bool = false;
+const options = [
+  { name: "Linux", value: "linux" },
+  { name: "Windows", value: "windows" },
+  { name: "macOS", value: "macos" },
+];
 ---
 
 <html lang="en">
@@ -8,9 +17,21 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <h1 class="">Astro</h1>
+    {!bool && <p class="text-green-500">This is true!</p>}
+
+    {
+      os === "linux" ? (
+        <p class="text-red-500">Linux is the best OS!</p>
+      ) : (
+        <p class="text-blue-500">Linux is not the best OS!</p>
+      )
+    }
+    <ul>
+      {options.map((option) => <li>{option.name}</li>)}
+    </ul>
   </body>
 </html>
